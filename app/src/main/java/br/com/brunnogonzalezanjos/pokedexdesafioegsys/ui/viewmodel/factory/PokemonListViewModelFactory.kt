@@ -9,7 +9,6 @@ import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.PokemonListVi
 class PokemonListViewModelFactory(private val repository: PokemonRepository) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        Log.i("CALLAPI", "GetAll ViewModel Factory: ")
         return PokemonListViewModel(repository) as T
     }
 }

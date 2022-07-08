@@ -1,45 +1,32 @@
 package br.com.brunnogonzalezanjos.pokedexdesafioegsys.repository
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import br.com.brunnogonzalezanjos.pokedexdesafioegsys.model.Pokemon
-import br.com.brunnogonzalezanjos.pokedexdesafioegsys.model.PokemonResult
+import br.com.brunnogonzalezanjos.pokedexdesafioegsys.model.PokemonApiResult
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.model.PokemonsApiResult
-import br.com.brunnogonzalezanjos.pokedexdesafioegsys.retrofit.webclient.PokemonWebClient
+import br.com.brunnogonzalezanjos.pokedexdesafioegsys.retrofit.service.PokemonService
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
-class PokemonRepository(
-    private val webClient: PokemonWebClient = PokemonWebClient()
-) {
-    private val pokemonsFound = MutableLiveData<Resource<PokemonsApiResult>?>()
+object PokemonRepository {
+    private val service: PokemonService
 
-    fun getAll(): LiveData<Resource<PokemonsApiResult>?> {
-        val updatePokemonList: (PokemonsApiResult) -> Unit = {
-            pokemonsFound.value = Resource(data = it);
-        }
-        searchInAPI(
-            whenFail = { error ->
-                Log.i("CALLAPI", "REPOSITORY FAIL: " + error)
-                val actualResource = pokemonsFound.value
-                val resourceFail = createResourceFail<PokemonsApiResult>(
-                    actualResource,
-                    error
-                )
-                pokemonsFound.value = resourceFail
-            })
-        return pokemonsFound
+    init {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://pokeapi.co/api/v2/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        service = retrofit.create(PokemonService::class.java);
     }
 
-    private fun searchInAPI(
-        whenFail: (erro: String?) -> Unit
-    ) {
-        webClient.getAll(
-            whenSuccess = { newPokemon ->
-                newPokemon?.let { pokemonResult ->
-                    Log.i("CALLAPI", "REPOSITORY SUCCESS")
-                    pokemonsFound.value = Resource(pokemonResult)
-                }
-            }, whenFail = whenFail
-        )
+    fun listPokemons(limit: Int = 151): PokemonsApiResult? {
+        val call = service.listPokemons(limit)
+
+        return call.execute().body()
+    }
+
+    fun getPokemon(id: Int): PokemonApiResult? {
+        val call = service.getPokemon(id)
+
+        return call.execute().body()
     }
 }
