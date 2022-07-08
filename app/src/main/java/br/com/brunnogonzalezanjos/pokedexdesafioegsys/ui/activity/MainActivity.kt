@@ -13,8 +13,6 @@ import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.PokemonListVi
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.factory.PokemonListViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 
-//https://github.com/FabricaDeSinapse/pokedex-android/blob/main/app/src/main/java/br/com/fabricadesinapse/pokedex_android/view/MainActivity.kt
-
 class MainActivity : AppCompatActivity() {
 
     private val viewModel by lazy {
