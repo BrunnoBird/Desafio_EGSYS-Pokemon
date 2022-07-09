@@ -13,12 +13,23 @@ data class PokemonResult(
 )
 
 data class PokemonApiResult(
-    val id: Int,
+    val id: Long,
     val name: String,
-    val types: List<PokemonTypeSlot>
+    val types: List<PokemonTypeSlot>,
+    val stats: List<PokemonStats>
 )
 
 data class PokemonTypeSlot(
     val slot: Int,
     val type: PokemonType
+)
+
+// [0] HP | [1] Attack | [2]Defence
+data class PokemonStats(
+    val base_stat: Int,
+    val stat: PokemonStat
+)
+
+data class PokemonStat(
+    val name: String
 )

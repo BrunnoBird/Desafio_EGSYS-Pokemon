@@ -17,6 +17,9 @@
         android:theme="@style/Theme.PokedexDesafioEgsys"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.DetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>

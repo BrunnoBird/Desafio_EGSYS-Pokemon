@@ -38,18 +38,18 @@
     </RelativeLayout>
 
     <EditText
-        android:drawableStart="@drawable/ic_search"
-        android:drawablePadding="6dp"
         android:id="@+id/tilSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="26dp"
-        android:inputType="textPersonName"
-        android:focusable="true"
-        android:maxLength="40"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="6dp"
         android:elegantTextHeight="true"
-        android:paddingStart="8dp"
+        android:focusable="true"
         android:hint="Search pokemon"
+        android:inputType="textPersonName"
+        android:maxLength="40"
+        android:paddingStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rlHomeHeader" />
@@ -65,4 +65,16 @@
         app:layout_constraintTop_toBottomOf="@+id/tilSearch"
         app:spanCount="2"
         tools:listitem="@layout/item_card_pokemon" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_random_pokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/colorAccent"
+        android:clickable="true"
+        android:src="@drawable/pokeball"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

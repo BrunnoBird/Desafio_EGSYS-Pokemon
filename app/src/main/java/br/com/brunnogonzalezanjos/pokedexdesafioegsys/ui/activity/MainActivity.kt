@@ -1,8 +1,10 @@
 package br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.R
@@ -25,7 +27,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        configFab()
         findPokemons()
+    }
+
+    private fun configFab() {
+        fab_random_pokemon.setOnClickListener {
+            randomPokemon()
+        }
+    }
+
+    private fun randomPokemon() {
+        Log.i("Cliquei", "randomPokemon: Cliquei")
     }
 
     private fun loadRecyclerView(pokemons: MutableList<Pokemon?>) {
@@ -36,7 +49,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openPokemonDetails(it: Pokemon) {
-        Log.i("ONCLICK", "openPokemonDetails: " + it.name)
+        val intent = Intent(this, DetailsActivity::class.java)
+        intent.putExtra(POKEMON_ID, it.number)
+        startActivity(intent)
     }
 
     private fun findPokemons() {

@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.346" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.266" />
         <entry key="app/src/main/res/drawable/rounded_corner_text_view.xml" value="0.345" />
+        <entry key="app/src/main/res/layout/activity_details.xml" value="0.34427083333333336" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.34427083333333336" />
         <entry key="app/src/main/res/layout/item_card_pokemon.xml" value="0.34322916666666664" />
       </map>

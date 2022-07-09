@@ -1,9 +1,12 @@
 package br.com.brunnogonzalezanjos.pokedexdesafioegsys.model
 
 data class Pokemon(
-    val number: Int,
+    val number: Long,
     val name: String,
-    val types: List<PokemonType>
+    val types: List<PokemonType>,
+    val attack: Int,
+    val defense: Int,
+    val hp: Int,
 ) {
     val formattedName = name.capitalize()
     val formattedNumber = number.toString().padStart(3, '0')

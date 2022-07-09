@@ -24,7 +24,7 @@ object PokemonRepository {
         return call.execute().body()
     }
 
-    fun getPokemon(id: Int): PokemonApiResult? {
+    fun getPokemon(id: Long): PokemonApiResult? {
         val call = service.getPokemon(id)
 
         return call.execute().body()
