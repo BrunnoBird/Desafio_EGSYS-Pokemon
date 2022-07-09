@@ -37,19 +37,18 @@
             android:src="@drawable/pokeball" />
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/tilSearch"
+    <SearchView
+        android:id="@+id/et_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="26dp"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="6dp"
         android:elegantTextHeight="true"
-        android:focusable="true"
-        android:hint="Search pokemon"
+        android:iconifiedByDefault="false"
         android:inputType="textPersonName"
         android:maxLength="40"
-        android:paddingStart="8dp"
+        android:queryHint="Search pokemon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rlHomeHeader" />
@@ -58,11 +57,12 @@
         android:id="@+id/activity_list_pokemon_recyclerview"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilSearch"
+        app:layout_constraintTop_toBottomOf="@+id/et_search"
         app:spanCount="2"
         tools:listitem="@layout/item_card_pokemon" />
 
@@ -77,4 +77,14 @@
         android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/pb_load_pokemons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

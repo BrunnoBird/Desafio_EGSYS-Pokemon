@@ -3,8 +3,8 @@ package br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.R
@@ -16,7 +16,6 @@ import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.factory.Pokem
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
     private val viewModel by lazy {
         val repository = PokemonRepository
         val factory = PokemonListViewModelFactory(repository)
@@ -27,25 +26,48 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        configFab()
+        listeners()
         findPokemons()
     }
 
-    private fun configFab() {
+    private fun listeners() {
+        searchPokemonListener()
+        fabListener()
+    }
+
+    private fun searchPokemonListener() {
+        et_search.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            android.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    private fun fabListener() {
         fab_random_pokemon.setOnClickListener {
             randomPokemon()
         }
     }
 
     private fun randomPokemon() {
-        Log.i("Cliquei", "randomPokemon: Cliquei")
+        TODO("Not yet implemented")
     }
 
-    private fun loadRecyclerView(pokemons: MutableList<Pokemon?>) {
+    private fun loadRecyclerView(
+        pokemons: MutableList<Pokemon?>,
+    ) {
         activity_list_pokemon_recyclerview.adapter = PokemonListAdapter(
-            this, pokemons,
+            this,
+            item = pokemons,
             onItemClick = this::openPokemonDetails
         )
+        pb_load_pokemons.visibility = View.GONE
     }
 
     private fun openPokemonDetails(it: Pokemon) {
@@ -55,6 +77,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun findPokemons() {
+        pb_load_pokemons.visibility = View.VISIBLE
         viewModel.pokemons.observe(this, Observer {
             loadRecyclerView(it as MutableList<Pokemon?>)
         })
