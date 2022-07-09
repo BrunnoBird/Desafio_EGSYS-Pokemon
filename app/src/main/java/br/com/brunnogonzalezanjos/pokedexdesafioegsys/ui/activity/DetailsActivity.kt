@@ -14,6 +14,7 @@ import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.factory.Pokem
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.item_card_pokemon.view.*
+import kotlinx.android.synthetic.main.toolbar_back.*
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -32,6 +33,11 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_details)
 
         binding()
+        listeners()
+    }
+
+    private fun listeners() {
+        ib_back.setOnClickListener { finish() }
     }
 
     private fun binding() {
@@ -39,7 +45,7 @@ class DetailsActivity : AppCompatActivity() {
             it?.let {
                 Glide.with(ivPokemonImageDetail.context).load(it.imageUrl)
                     .into(ivPokemonImageDetail)
-                tvPokemonNameDetail.text = it.name
+                tvPokemonNameDetail.text = it.name.replaceFirstChar { it.uppercase() }
                 tvNumberPokemonDetail.text = "#${it.number.toString()}"
                 tvPokemonDetailHpPoints.text = it.hp.toString()
                 progressBarPokemonDetailHp.progress = it.hp
@@ -48,10 +54,11 @@ class DetailsActivity : AppCompatActivity() {
                 tvPokemonDetailDefPoints.text = it.defense.toString()
                 progressBarPokemonDetailDef.progress = it.defense
 
-                tvPokemonDetatilElement.text = it.types[0].name.capitalize()
+                tvPokemonDetatilElement.text = it.types[0].name.replaceFirstChar { it.uppercase() }
                 if (it.types.size > 1) {
                     tvPokemonDetatilElement2.visibility = View.VISIBLE
-                    tvPokemonDetatilElement2.text = it.types[1].name.capitalize()
+                    tvPokemonDetatilElement2.text =
+                        it.types[1].name.replaceFirstChar { it.uppercase() }
                 } else {
                     tvPokemonDetatilElement2.visibility = View.GONE
                 }

@@ -7,6 +7,13 @@
     android:background="@color/grey"
     tools:context=".ui.activity.DetailsActivity">
 
+    <include
+        android:id="@+id/pokemonDetailsToolbarBack"
+        layout="@layout/toolbar_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cvPokemonDetail"
         android:layout_width="match_parent"
@@ -16,7 +23,7 @@
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/pokemonDetailsToolbarBack">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -40,10 +47,10 @@
                 android:id="@+id/ivPokemonImageDetail"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                tools:background="@drawable/charmander"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@drawable/charmander" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

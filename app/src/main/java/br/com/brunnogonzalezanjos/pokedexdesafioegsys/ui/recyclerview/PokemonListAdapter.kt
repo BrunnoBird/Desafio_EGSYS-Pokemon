@@ -47,16 +47,18 @@ class PokemonListAdapter(
 
         fun binding(item: Pokemon?) {
 
-            item?.let {
+            item?.let { it ->
                 this.pokemon = item
                 Glide.with(itemView.context).load(it.imageUrl).into(itemView.ivPokemon)
                 itemView.tvNumberPokemon.text = "Nº ${item.formattedNumber}"
-                itemView.tvNamePokemon.text = item.name
-                itemView.tvElementPokemon.text = item.types[0].name.capitalize()
+                itemView.tvNamePokemon.text = item.name.replaceFirstChar { it.uppercase() }
+                itemView.tvElementPokemon.text =
+                    item.types[0].name.replaceFirstChar { it.uppercase() }
 
                 if (item.types.size > 1) {
                     itemView.tvElementPokemon2.visibility = View.VISIBLE
-                    itemView.tvElementPokemon2.text = item.types[1].name.capitalize()
+                    itemView.tvElementPokemon2.text =
+                        item.types[1].name.replaceFirstChar { it.uppercase() }
                 } else {
                     itemView.tvElementPokemon2.visibility = View.GONE
                 }
