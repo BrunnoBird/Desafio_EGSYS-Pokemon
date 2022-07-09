@@ -56,7 +56,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun randomPokemon() {
-        TODO("Not yet implemented")
+        hasPokemon()
+    }
+
+    private fun hasPokemon() {
+        if (viewModel.pokemons.value?.isNotEmpty() == true) {
+            viewModel.pokemons.observe(this, Observer {
+                it?.let {
+                    val randomPokemon = randomPokemonById(it)
+                    randomPokemon?.let {
+                        openPokemonDetails(randomPokemon)
+                    }
+                }
+            })
+        } else {
+            return
+        }
+    }
+
+    private fun randomPokemonById(it: List<Pokemon?>): Pokemon? {
+        val randomPokemonId = (0..it.size).random()
+        val randomPokemon = it[randomPokemonId]
+        return randomPokemon
     }
 
     private fun loadRecyclerView(
