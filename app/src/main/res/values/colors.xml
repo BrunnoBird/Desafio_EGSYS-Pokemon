@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/backgroundLight</color>
+    <color name="colorPrimary">@color/black</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">@color/red</color>
 
@@ -12,6 +12,7 @@
     <color name="blue">#429BED</color>
     <color name="brown">#B1736C</color>
     <color name="grey">#303943</color>
+    <color name="greyAlpha">#5E303943</color>
     <color name="greybg">#5E6D7E</color>
     <color name="smoke">#919191</color>
     <color name="indigo">#6C79DB</color>

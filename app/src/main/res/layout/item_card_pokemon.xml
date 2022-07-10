@@ -19,11 +19,11 @@
             android:id="@+id/ivPokemon"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            tools:background="@drawable/charmander"
-            android:contentDescription="Pokemon Image"
+            android:contentDescription="@string/pokemon_photo_item_card_content_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/charmander" />
 
         <TextView
             android:id="@+id/tvNumberPokemon"
@@ -61,11 +61,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="16dp"
-                android:layout_marginRight="10dp"
-                android:textAlignment="center"
+                android:layout_marginEnd="10dp"
                 android:background="@drawable/rounded_corner_text_view"
                 android:minWidth="50dp"
                 android:padding="5dp"
+                android:textAlignment="center"
                 android:textColor="@color/lightRed"
                 android:textSize="12sp"
                 tools:text="Fire" />
@@ -76,11 +76,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="16dp"
                 android:background="@drawable/rounded_corner_text_view"
-                android:visibility="gone"
                 android:minWidth="50dp"
                 android:padding="5dp"
+                android:textAlignment="center"
                 android:textColor="@color/lightRed"
                 android:textSize="12sp"
+                android:visibility="gone"
                 tools:text="Fire" />
         </LinearLayout>
 

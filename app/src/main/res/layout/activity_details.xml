@@ -34,19 +34,21 @@
                 android:id="@+id/tvNumberPokemonDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="#001"
+                android:text=""
                 android:textColor="@color/grey"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.70"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="#001" />
 
             <ImageView
                 android:id="@+id/ivPokemonImageDetail"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
+                android:contentDescription="@string/pokemon_photo_content_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -60,13 +62,14 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:text="Charmander"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvPokemonDetail" />
+        app:layout_constraintTop_toBottomOf="@id/cvPokemonDetail"
+        tools:text="Charmander" />
 
     <LinearLayout
         android:id="@+id/linearPokemonDetailElement"
@@ -87,11 +90,12 @@
             android:layout_weight="1"
             android:background="@drawable/rounded_corner_text_view"
             android:padding="8dp"
-            android:text="Fire"
+            android:text=""
             android:textAlignment="center"
             android:textColor="@color/grey"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Fire" />
 
         <TextView
             android:id="@+id/tvPokemonDetatilElement2"
@@ -101,11 +105,12 @@
             android:layout_weight="1"
             android:background="@drawable/rounded_corner_text_view"
             android:padding="8dp"
-            android:text="Fire"
+            android:text=""
             android:textAlignment="center"
             android:textColor="@color/grey"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Fire" />
     </LinearLayout>
 
     <TextView
@@ -115,7 +120,7 @@
         android:layout_margin="16dp"
         android:layout_marginHorizontal="8dp"
         android:padding="8dp"
-        android:text="HP"
+        android:text="@string/hp_label_pokemon_defatils"
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -130,13 +135,14 @@
         android:layout_marginVertical="16dp"
         android:alpha="0.6"
         android:padding="8dp"
-        android:text="43"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/tvPokemonDetailHp"
         app:layout_constraintStart_toEndOf="@id/tvPokemonDetailHp"
-        app:layout_constraintTop_toTopOf="@+id/tvPokemonDetailHp" />
+        app:layout_constraintTop_toTopOf="@+id/tvPokemonDetailHp"
+        tools:text="43" />
 
     <ProgressBar
         android:id="@+id/progressBarPokemonDetailHp"
@@ -159,7 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="16dp"
         android:padding="8dp"
-        android:text="Attack"
+        android:text="@string/attack_label_pokemon_details"
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -173,12 +179,13 @@
         android:layout_marginVertical="16dp"
         android:alpha="0.6"
         android:padding="8dp"
-        android:text="60"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvPokemonDetailHpPoints"
-        app:layout_constraintTop_toBottomOf="@+id/tvPokemonDetailHpPoints" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPokemonDetailHpPoints"
+        tools:text="60" />
 
     <ProgressBar
         android:id="@+id/progressBarPokemonDetailAtk"
@@ -200,7 +207,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="16dp"
         android:padding="8dp"
-        android:text="Defense"
+        android:text="@string/defense_label_pokemon_details"
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -214,12 +221,13 @@
         android:layout_marginVertical="12dp"
         android:alpha="0.6"
         android:padding="8dp"
-        android:text="80"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvPokemonDetailAtkPoints"
-        app:layout_constraintTop_toBottomOf="@+id/tvPokemonDetailAtkPoints" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPokemonDetailAtkPoints"
+        tools:text="80" />
 
     <ProgressBar
         android:id="@+id/progressBarPokemonDetailDef"

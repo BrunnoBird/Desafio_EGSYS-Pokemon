@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Pokedex Desafio Egsys</string>
+    <string name="label_search">Search pokemon</string>
+    <string name="main_acitivity_app_name">Pokedex</string>
+    <string name="app_logo_content_description">App logo</string>
+    <string name="pokemon_photo_content_description">Pokemon photo</string>
+    <string name="hp_label_pokemon_defatils">HP</string>
+    <string name="attack_label_pokemon_details">Attack</string>
+    <string name="defense_label_pokemon_details">Defense</string>
+    <string name="pokemon_photo_item_card_content_description">Pokemon photo</string>
+    <string name="fab_main_content_descritpion">Button to draw random pokemon</string>
+    <string name="back_button_toolbar_content_description">Back screen button</string>
+    <string name="logo_app_splash_content_description">App logo</string>
+    <string name="label_app_name_splash">Poke EGSYS</string>
 </resources>

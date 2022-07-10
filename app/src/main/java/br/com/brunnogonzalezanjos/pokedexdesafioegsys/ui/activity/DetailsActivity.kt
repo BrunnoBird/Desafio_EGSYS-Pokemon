@@ -8,12 +8,9 @@ import androidx.lifecycle.ViewModelProvider
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.R
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.repository.PokemonRepository
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.DetailsViewModel
-import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.PokemonListViewModel
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.factory.DetailsViewModelFactory
-import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.factory.PokemonListViewModelFactory
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_details.*
-import kotlinx.android.synthetic.main.item_card_pokemon.view.*
 import kotlinx.android.synthetic.main.toolbar_back.*
 
 class DetailsActivity : AppCompatActivity() {

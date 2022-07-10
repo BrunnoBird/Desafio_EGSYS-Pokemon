@@ -3,8 +3,9 @@ package br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
-import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.R
@@ -33,20 +34,6 @@ class MainActivity : AppCompatActivity() {
     private fun listeners() {
         searchPokemonListener()
         fabListener()
-    }
-
-    private fun searchPokemonListener() {
-        et_search.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
-            android.widget.SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                TODO("Not yet implemented")
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                TODO("Not yet implemented")
-            }
-
-        })
     }
 
     private fun fabListener() {
@@ -101,6 +88,27 @@ class MainActivity : AppCompatActivity() {
         pb_load_pokemons.visibility = View.VISIBLE
         viewModel.pokemons.observe(this, Observer {
             loadRecyclerView(it as MutableList<Pokemon?>)
+        })
+    }
+
+    private fun searchPokemonListener() {
+        input_search.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val pokemons =
+                    viewModel.pokemons.value?.filter {
+                        it?.name?.contains(s.toString().lowercase()) ?: false
+                    }
+                pokemons?.let {
+                    loadRecyclerView(it.toMutableList())
+                }
+            }
         })
     }
 }
