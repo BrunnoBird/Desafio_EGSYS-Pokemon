@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.R
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.model.Pokemon
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_details.view.*
 import kotlinx.android.synthetic.main.item_card_pokemon.view.*
 
 class PokemonListAdapter(

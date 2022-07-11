@@ -21,6 +21,8 @@ class DetailsViewModel(id: Long, private val repository: PokemonRepository) : Vi
             pokemon.postValue(
                 Pokemon(
                     number = it.id,
+                    weight = it.weight,
+                    height = it.height,
                     name = it.name,
                     types = it.types.map { type ->
                         type.type

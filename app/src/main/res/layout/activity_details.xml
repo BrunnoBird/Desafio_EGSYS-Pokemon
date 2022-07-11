@@ -36,18 +36,68 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textColor="@color/grey"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.70"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="#001" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/weight_details"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvWeightPokemonDetailsValue"
+                app:layout_constraintEnd_toStartOf="@+id/tvWeightPokemonDetailsValue"
+                app:layout_constraintTop_toTopOf="@+id/tvWeightPokemonDetailsValue" />
+
+            <TextView
+                android:id="@+id/tvWeightPokemonDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=""
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNumberPokemonDetail"
+                tools:text="90.5 KG" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/height_details"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvHeightPokemonDetailsValue"
+                app:layout_constraintEnd_toStartOf="@id/tvHeightPokemonDetailsValue"
+                app:layout_constraintTop_toTopOf="@+id/tvHeightPokemonDetailsValue" />
+
+            <TextView
+                android:id="@+id/tvHeightPokemonDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text=""
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvWeightPokemonDetailsValue"
+                app:layout_constraintTop_toBottomOf="@+id/tvWeightPokemonDetailsValue"
+                tools:text="1.0 M" />
+
+
             <ImageView
                 android:id="@+id/ivPokemonImageDetail"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:contentDescription="@string/pokemon_photo_content_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -128,6 +178,8 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvPokemonDetailHpPoints"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearPokemonDetailElement" />
 
@@ -144,7 +196,9 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/tvPokemonDetailHp"
-        app:layout_constraintStart_toEndOf="@id/tvPokemonDetailHp"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarPokemonDetailHp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvPokemonDetailHp"
         app:layout_constraintTop_toTopOf="@+id/tvPokemonDetailHp"
         tools:text="43" />
 
@@ -160,7 +214,8 @@
         android:progress="43"
         app:layout_constraintBottom_toBottomOf="@+id/tvPokemonDetailHpPoints"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvPokemonDetailHpPoints"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvPokemonDetailHpPoints"
         app:layout_constraintTop_toTopOf="@+id/tvPokemonDetailHpPoints" />
 
     <TextView

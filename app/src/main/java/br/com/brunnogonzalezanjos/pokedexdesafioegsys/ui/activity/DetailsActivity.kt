@@ -11,6 +11,7 @@ import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.DetailsViewMo
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.factory.DetailsViewModelFactory
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_details.*
+import kotlinx.android.synthetic.main.activity_details.view.*
 import kotlinx.android.synthetic.main.toolbar_back.*
 
 class DetailsActivity : AppCompatActivity() {
@@ -43,7 +44,9 @@ class DetailsActivity : AppCompatActivity() {
                 Glide.with(ivPokemonImageDetail.context).load(it.imageUrl)
                     .into(ivPokemonImageDetail)
                 tvPokemonNameDetail.text = it.name.replaceFirstChar { it.uppercase() }
-                tvNumberPokemonDetail.text = "#${it.number.toString()}"
+                tvNumberPokemonDetail.text = "#${it.number}"
+                tvHeightPokemonDetailsValue.text = "${it.height} M"
+                tvWeightPokemonDetailsValue.text = "${it.weight} Kg"
                 tvPokemonDetailHpPoints.text = it.hp.toString()
                 progressBarPokemonDetailHp.progress = it.hp
                 tvPokemonDetailAtkPoints.text = it.attack.toString()

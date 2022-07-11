@@ -27,6 +27,8 @@ class PokemonListViewModel(private val repository: PokemonRepository) : ViewMode
                 pokemonApiResult?.let {
                     Pokemon(
                         number = pokemonApiResult.id,
+                        weight = pokemonApiResult.weight,
+                        height = pokemonApiResult.height,
                         name = pokemonApiResult.name,
                         types = pokemonApiResult.types.map { type ->
                             type.type

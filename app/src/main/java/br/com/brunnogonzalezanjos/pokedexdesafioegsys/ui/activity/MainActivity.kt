@@ -104,6 +104,9 @@ class MainActivity : AppCompatActivity() {
                 val pokemons =
                     viewModel.pokemons.value?.filter {
                         it?.name?.contains(s.toString().lowercase()) ?: false
+                        //TODO CRIAR FILTRO PARA PESQUISAR OU POR TIPO OU POR NOME DO POKEMON
+                        it?.types?.map { type -> type.name }?.contains(s.toString().lowercase())
+                            ?: false
                     }
                 pokemons?.let {
                     loadRecyclerView(it.toMutableList())

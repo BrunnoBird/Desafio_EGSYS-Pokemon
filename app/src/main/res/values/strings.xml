@@ -12,4 +12,6 @@
     <string name="back_button_toolbar_content_description">Back screen button</string>
     <string name="logo_app_splash_content_description">App logo</string>
     <string name="label_app_name_splash">Poke-EGSYS</string>
+    <string name="weight_details">Weight:</string>
+    <string name="height_details">Height:</string>
 </resources>
