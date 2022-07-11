@@ -1,11 +1,11 @@
-# Pokedex-EGSYS
+# Pokédex-EGSYS
 
 ## Aplicativo de desafio para vaga na EGSYS de Desenvolvedor Android.
 
 </br>
 
 <h2 align="center"> 
-	🚧   Pokedex-EGSYS 🚀 Status: Finalizado.  🚧
+	🚧   Pokédex-EGSYS 🚀 Status: Finalizado.  🚧
 </h2>
 
 </br>
@@ -22,11 +22,11 @@
 <li>Splash Screen</li>
 <li>Tela Home</li>
 <li>Tela Detalhes de um pokémon</li>
-<li>API fornecida para uso: <a href="https://pokeapi.co">PokéAPI</a></li>
+<li>API fornecida para uso: <a target="_blank" href="https://pokeapi.co">PokéAPI</a></li>
 
 </br>
 <h1 align="center">
-  <img alt="Images" title="#Images" src="./screenshots/screenshotsEGSYS.png" width=700 />
+  <img alt="Images" title="#Images" src="./screenshots/screenshoot.png" width=700 />
 </h1>
 
 </br>
