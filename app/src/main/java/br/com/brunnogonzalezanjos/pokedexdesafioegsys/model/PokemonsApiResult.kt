@@ -14,8 +14,8 @@ data class PokemonResult(
 
 data class PokemonApiResult(
     val id: Long,
-    val weight: Int? = null,
-    val height: Int? = null,
+    val weight: Int,
+    val height: Int,
     val name: String,
     val types: List<PokemonTypeSlot>,
     val stats: List<PokemonStats>,

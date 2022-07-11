@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
+import android.widget.RadioButton
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.com.brunnogonzalezanjos.pokedexdesafioegsys.R
@@ -17,6 +19,7 @@ import br.com.brunnogonzalezanjos.pokedexdesafioegsys.ui.viewmodel.factory.Pokem
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private var typeFilter: String = FILTER_TYPE_NAME
     private val viewModel by lazy {
         val repository = PokemonRepository
         val factory = PokemonListViewModelFactory(repository)
@@ -34,6 +37,22 @@ class MainActivity : AppCompatActivity() {
     private fun listeners() {
         searchPokemonListener()
         fabListener()
+        radioButtonListener()
+    }
+
+    private fun radioButtonListener() {
+        rgFilterActivity.setOnCheckedChangeListener { _, i ->
+            when (findViewById<RadioButton>(i)) {
+                radio_name ->
+                    if (radio_name.isChecked) {
+                        typeFilter = FILTER_TYPE_NAME
+                    }
+                radio_type ->
+                    if (radio_type.isChecked) {
+                        typeFilter = FILTER_TYPE_TYPE
+                    }
+            }
+        }
     }
 
     private fun fabListener() {
@@ -101,15 +120,27 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val pokemons =
-                    viewModel.pokemons.value?.filter {
-                        it?.name?.contains(s.toString().lowercase()) ?: false
-                        //TODO CRIAR FILTRO PARA PESQUISAR OU POR TIPO OU POR NOME DO POKEMON
-                        it?.types?.map { type -> type.name }?.contains(s.toString().lowercase())
-                            ?: false
+                when (typeFilter) {
+                    FILTER_TYPE_NAME -> {
+                        val pokemons =
+                            viewModel.pokemons.value?.filter {
+                                it?.name?.contains(s.toString().lowercase()) ?: false
+                            }
+                        pokemons?.let {
+                            loadRecyclerView(it.toMutableList())
+                        }
                     }
-                pokemons?.let {
-                    loadRecyclerView(it.toMutableList())
+                    FILTER_TYPE_TYPE -> {
+                        val pokemons =
+                            viewModel.pokemons.value?.filter {
+                                val typesPoke = it?.types?.map { type -> type.name }
+                                typesPoke?.map { type -> type }
+                                    ?.contains(s.toString().lowercase()) ?: false
+                            }
+                        pokemons?.let {
+                            loadRecyclerView(it.toMutableList())
+                        }
+                    }
                 }
             }
         })

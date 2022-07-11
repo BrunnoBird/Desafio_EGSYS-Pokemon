@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundLight"
+    android:paddingHorizontal="8dp"
     tools:context=".ui.activity.MainActivity">
 
 
@@ -49,11 +50,57 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_search"
+    <TextView
+        android:id="@+id/labelFilterTypeActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="98dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Search filter by:"
+        android:textColor="@color/grey"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rlHomeHeader" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/rgFilterActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelFilterTypeActivity">
+
+        <RadioButton
+            android:id="@+id/radio_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:checked="true"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/type_filter_name"
+            android:textColor="@color/grey" />
+
+        <RadioButton
+            android:id="@+id/radio_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/type_filter_type"
+            android:textColor="@color/grey" />
+    </RadioGroup>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_search"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
+
         android:layout_marginEnd="12dp"
         android:background="@android:color/transparent"
         android:fontFamily="@font/roboto_bold"
@@ -64,7 +111,7 @@
         app:boxBackgroundColor="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rlHomeHeader"
+        app:layout_constraintTop_toBottomOf="@id/rgFilterActivity"
         app:startIconDrawable="@android:drawable/ic_menu_search">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -108,9 +155,9 @@
         android:id="@+id/pb_load_pokemons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_list_pokemon_recyclerview"
+        app:layout_constraintEnd_toEndOf="@+id/activity_list_pokemon_recyclerview"
+        app:layout_constraintStart_toStartOf="@+id/activity_list_pokemon_recyclerview"
+        app:layout_constraintTop_toTopOf="@+id/activity_list_pokemon_recyclerview"
         tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

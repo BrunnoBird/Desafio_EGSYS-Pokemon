@@ -7,8 +7,8 @@ data class Pokemon(
     val attack: Int,
     val defense: Int,
     val hp: Int,
-    var weight: Int? = null,
-    var height: Int? = null,
+    var weight: Int,
+    var height: Int,
 ) {
     val formattedName = name.replaceFirstChar { it.uppercase() }
     val formattedNumber = number.toString().padStart(3, '0')

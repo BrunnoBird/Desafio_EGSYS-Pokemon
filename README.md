@@ -11,8 +11,18 @@
 </br>
 <p align="center">
  <a href="#tecnologias">Tecnologias</a> • 
- <a href="#autor">Autor</a>
+ <a href="#autor">Autor</a> •
+ <a href="#funcionalidades">Funcinoalidades</a>
 </p>
+
+</br>
+<h3 id="funcionalidades">Funcionalidades e Requisitos</h3>
+<li>Filtros por nome e tipo do Pokémon</li>
+<li>Botão para sortear um pokémon aleatoriamente e abrir seus detalhes</li>
+<li>Splash Screen</li>
+<li>Tela Home</li>
+<li>Tela Detalhes de um pokémon</li>
+<li>API fornecida para uso: <a href="https://pokeapi.co">PokéAPI</a></li>
 
 </br>
 <h1 align="center">
